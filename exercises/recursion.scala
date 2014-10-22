@@ -6,7 +6,7 @@ object Recursion {
       * 5! = 5 * 4 * 3 * 2 * 1
       * 3! = 3 * 2 * 1
       */
-    def fact(num:Int) = ???
+    def fact(num:Int):Int = if(num == 0 | num == 1) 1 else num * fact(num - 1)
 
     /** computes fibonacci value for a given number
       *

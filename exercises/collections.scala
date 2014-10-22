@@ -1,54 +1,54 @@
 object Functions {
 
     // convert a string to upper case, e.g. John => JOHN
-    def upper(s:String) = ???
+    def upper(s:String) = s.toUpperCase
 
     // convert a list of strings to list of upper case strings
-    def listToUpper(list:List[String]) = ???
+    def listToUpper(list:List[String]) = list.map((str) => str.toUpperCase)
 
 
     // return the length of a string
-    def length(str: String):Int = ???
+    def length(str: String):Int = str.length
 
     // filter names that are less than four characters long
-    def filterShortNames(names:List[String]) = ???
+    def filterShortNames(names:List[String]) = names.filter((str) => str.length > 3)
 
     // filter names that are less than four characters long
     // and turn remaining names to uppercase
-    def filterShortAndTurnToUppercase(names:List[String]) = ???
+    def filterShortAndTurnToUppercase(names:List[String]) = names.filter((str) => str.length > 3).map((str) => str.toUpperCase)
 
 
     // turn a string to a list of characters
-    def characters(str: String):List[Char] = ???
+    def characters(str: String):List[Char] = str.toList
 
     // turn a list of strings to a list of list of characters
-    def toCharacterLists(list:List[String]):List[List[Char]] = ???
+    def toCharacterLists(list:List[String]):List[List[Char]] = list.map((str) => str.toList)
 
     // turn a list of strings to a list of characters
-    def listOfAllCharacters(list:List[String]):List[Char] = ???
+    def listOfAllCharacters(list:List[String]):List[Char] = list.flatMap((str) => str.toList)
 
 
     // return the first string in a list, or if list is empty, return "nada"
-    def firstElementInListOrNada(list:List[String]) = ???
+    def firstElementInListOrNada(list:List[String]) = if(list.isEmpty) "nada" else list.head
 
     // find the longest string in given list of strings, or "nada" if empty
     // and reverse the result before returning it
-    def longestNameInList(names:List[String]) = ???
+    def longestNameInList(names:List[String]) = if(names.isEmpty) "nada".reverse else names.max.reverse
 
     // Join list `xs` of string with separator string `sep` into a string
-    def joinWithSep(xs: List[String], sep: String): String = ???
+    def joinWithSep(xs: List[String], sep: String): String = xs.reduce((str, strs) => str ++ sep ++ strs)
 
     // Take sums of lists and return those with sum greater than 20
     //
     // sumOfLists20(List(List(1,2,3), List(2,10,9))) == List(21)
-    def sumOfLists20(xs: List[List[Int]]): List[Int] = ???
+    def sumOfLists20(xs: List[List[Int]]): List[Int] = xs.map((xl) => xl.sum).filter((xl) => xl > 20)
 
 
     // Return only cards of suit "heart"
     //
     // onlyHearts(List(("diamond", 4), ("heart", 9), ("clubs", 10))) ==  List(("heart", 9))
-    def onlyHearts(xs: List[(String, Int)]): List[(String, Int)] = ???
-
+    def onlyHearts(xs: List[(String, Int)]): List[(String, Int)] = xs.filter{ case (s, _) => s == "heart" }
+    
     def main(args: Array[String]) {
         
         println(s"${Console.GREEN}Running ${tests.size} tests:")
